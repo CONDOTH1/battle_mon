@@ -12,6 +12,11 @@ attr_reader :name, :hitpoints, :dead
 
   def reduce_points
     @hitpoints -= 10
+    kill_player if @hitpoints <= 0
+  end
+
+  def kill_player
+    @dead = true
   end
 
 end

@@ -1,7 +1,16 @@
 <link rel='stylesheet' type='text/css' href='style.css'/>
 <body>
-<%= @game.player_1_turn ? @game.player_2.name : @game.player_1.name%> attacked
-<%= @game.player_1_turn ? @game.player_1.name : @game.player_2.name%>
+<%if @game.player_1_turn%>
+<%=@game.player_2.name%>
+<%else%>
+<%=@game.player_1.name%>
+<%end%>
+ attacked
+<%if @game.player_1_turn%>
+<%=@game.player_1.name%>
+<%else%>
+<%=@game.player_2.name%>
+<%end%>
 <form action="/play">
 <input type="submit" value="OK">
 </form>
